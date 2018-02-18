@@ -63,6 +63,7 @@ public class tab1 extends Fragment {
             public void onItemClick(final Button b, View view, final SongInfo obj, int position) {
                 if(b.getText().equals("Stop")){
                     mediaPlayer.stop();
+
                     mediaPlayer.reset();
                     mediaPlayer.release();
                     mediaPlayer = null;
@@ -75,7 +76,7 @@ public class tab1 extends Fragment {
                             try {
                                 mediaPlayer = new MediaPlayer();
                                 mediaPlayer.setDataSource(obj.getSongUrl());
-                                mediaPlayer.prepareAsync();
+                              mediaPlayer.prepareAsync();
                                 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                                     @Override
                                     public void onPrepared(MediaPlayer mp) {
@@ -176,6 +177,7 @@ public class tab1 extends Fragment {
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
         String selection = MediaStore.Audio.Media.IS_MUSIC+"!=0";
        //  SongAdapter songAdapter = new SongAdapter(getContext());
+
         Cursor cursor = getContext().getContentResolver().query(uri,null,selection,null,null);
 
         if(cursor != null){
@@ -185,11 +187,10 @@ public class tab1 extends Fragment {
                     String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
 
                     // checking for album
-                  //   String Album = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
-
+                 String Album = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
                     String url = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
 
-                    SongInfo s = new SongInfo(name,artist,url);
+                    SongInfo s = new SongInfo(name,artist,Album,url);
                     _songs.add(s);
 
                 }while (cursor.moveToNext());

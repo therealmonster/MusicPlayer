@@ -56,7 +56,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongHolder> {
             @Override
             public void onClick(View v) {
                 if (mOnItemClickListener != null) {
-                    mOnItemClickListener.onItemClick(songHolder.actionButton,v, s, i);
+                    mOnItemClickListener.onItemClick((Button) v, songHolder.actionButton, s, i);
                 }
             }
         });
@@ -71,13 +71,13 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongHolder> {
         TextView songName, songArtist;
         Button actionButton;
         // just for Album checking
-        //  TextView albumName;
+         TextView albumName;
         public SongHolder(View itemView) {
             super(itemView);
             songName = (TextView) itemView.findViewById(R.id.tvSongName);
             songArtist = (TextView) itemView.findViewById(R.id.tvArtistName);
             actionButton = (Button) itemView.findViewById(R.id.btnPlay);
-          //    albumName =(TextView)itemView.findViewById(R.id.albumName);
+            albumName =(TextView)itemView.findViewById(R.id.albumName);
 
         }
     }

@@ -8,15 +8,17 @@ public class SongInfo {
     private String Songname;
     private String Artistname;
     private String SongUrl;
-    ///  private String AlbumName;
+     private String AlbumName;
 
     public SongInfo() {
     }
 
-    public SongInfo(String songname, String artistname,String songUrl) {
+    public SongInfo(String songname, String artistname,  String albumName,String songUrl) {
         Songname = songname;
         Artistname = artistname;
         SongUrl = songUrl;
+        AlbumName =albumName;
+
 
 
     }
@@ -46,9 +48,9 @@ public class SongInfo {
     }
 
 
-   /*
+
     public String getAlbumName(){
         return AlbumName;
     }
-    */
+
 }

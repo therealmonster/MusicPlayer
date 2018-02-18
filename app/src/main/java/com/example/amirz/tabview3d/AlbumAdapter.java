@@ -42,6 +42,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
                 holder.albumName.setText(_ablums.get(position).getAlbumName());
                 holder.albumId.setText((int) _ablums.get(position).getID());
 
+
     }
 
     @Override
